@@ -5,6 +5,8 @@ on: [push, pull_request]
 jobs:
   build:
     runs-on: ubuntu-latest
+    env:
+      PLAYWRIGHT_BROWSERS_PATH: ~/.cache/ms-playwright
     steps:
       - uses: actions/checkout@v4
       - uses: actions/setup-node@v4
@@ -18,8 +20,6 @@ jobs:
           key: ${{ runner.os }}-pw-${{ hashFiles('**/package-lock.json') }}
           restore-keys: ${{ runner.os }}-pw-
       - run: npx playwright install --with-deps chromium
-        env:
-          PLAYWRIGHT_BROWSERS_PATH: ~/.cache/ms-playwright
       - run: npm run format
       - run: npm run test
       - run: npm run test:e2e
