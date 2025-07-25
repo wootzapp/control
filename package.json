@@ -9,7 +9,7 @@
     "lint": "eslint .",
     "test": "vitest run",
     "test:e2e": "playwright test",
-    "format": "prettier --check ."
+    "format": "prettier --write ."
   },
   "dependencies": {
     "@google-cloud/pubsub": "^5.1.0",
