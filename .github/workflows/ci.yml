@@ -20,7 +20,7 @@ jobs:
       - run: npx playwright install --with-deps chromium
         env:
           PLAYWRIGHT_BROWSERS_PATH: ~/.cache/ms-playwright
-      - run: npm run lint
       - run: npm run format
+      - run: npm run lint
       - run: npm run test
       - run: npm run test:e2e
